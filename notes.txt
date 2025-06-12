@@ -1,0 +1,22 @@
+THEORY
+ - structure
+    - root node has all data
+    - each descent into a node has a conditional (split point (for numerical)) based on feature (split feature)
+    - leaf nodes are the final prediction
+    - more depth = more conditions
+ - steps
+    - training:
+        - calculate info gain with each split
+        - divide set with that split feature and most info gained
+        - divide tree and do the same for all branches
+        - until stopping criteria is given
+    - testing:
+        - follow tree until leaf node
+        - return most common class label
+
+VOCAB
+ - infomation gain: IG = E(parent) - [weighted average] * E(children)
+    - where E is entropy (the lack of order, leaf iwth 100% one class has little disorder, low entropy)
+ - entropy = E = -(Summation)p(X)*log2(p(X))
+    - where p(X) - #ofclass in node/ total in node
+ - stopping criteria: maximum depth, minimum # of samples per node, min impurity decrease (min entropy change needed for split)
